@@ -1,8 +1,6 @@
 ---
 tags: cheatsheet
 ---
-
-!!!!!!!!!!!!PLAN FOR HOW TO MANAGE YOUR WORK PLEASE!!!!!!!!!!!!!!!!!
 ## stash
 ###  save
 - save current working files
@@ -78,4 +76,9 @@ git stash drop stash@{1}
 - delete the whole stash list
 ```
 git stash clear
+```
+## log
+- search grep in git log
+```
+git log --oneline grep '<text>'
 ```
