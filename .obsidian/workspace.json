@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "helper/linux.md",
+                "file": "programming/rust.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "helper/linux.md",
+                "file": "programming/rust.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "helper/linux.md",
+                "file": "programming/rust.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "helper/linux.md"
+                "file": "programming/rust.md"
               }
             }
           }
@@ -173,8 +173,8 @@
   },
   "active": "a9a05b8dee7b7281",
   "lastOpenFiles": [
-    "helper/bash-script.md",
     "helper/linux.md",
+    "helper/bash-script.md",
     "helper/git.md",
     "programming/rust.md",
     "helper/markdown.md",
