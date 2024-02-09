@@ -808,3 +808,63 @@ if let Coin::Quarter(state) = coin {
 	count += 1;
 }
 ```
+# Managing Growing Projects with Packages, Crates, and Modules
+- **Packages:** A Cargo feature that lets you build, test, and share crates
+- **Crates:** A tree of modules that produces a library or executable
+- **Modules** and **use:** Let you control the organization. scope, and privacy of paths
+- **Paths:** A way of naming an item, such as a struct, function, or module
+## Packages and Crates
+- A *crate* is the smallest amount of code that the Rust compiler considers at a time
+- Crates can contain modules, and the modules may be  defined in other files that get compiled with the crate
+- A *crate* can come in one of two forms: a binary crate or a library crate
+- *Binary crates* are programs you can compile to an executable that you can run, such as a command-line program or a server, each must have a function called `main` that defines what happens when the executable runs
+- *Library crates* don't have a `main` function, an they don't compile to an executable, they define functionality intended to be shared with multiple projects
+- *Crate root* is a source file that the Rust compiler starts from and makes up the root module of your crate
+- A *package* is a bundle of one or more crates that provides a set of functionality, containing a *Cargo.toml* file that describes how to build those crates
+- Cargo is actually a package that contains the binary crate for the command-line tool, also contains a library crate that the binary crate depends on.
+## Defining Modules to Control Scope and Privacy
+### Modules Cheat Sheet
+- **Start from the crate root:** When compiling a crate, the compiler first looks in the crate root file (usually *src/lib.rs* for a library crate or *src/main.rs* for a binary crate) for code to compile
+- **Declaring modules:** In the crate root file, you can declare new modules; say, you declare a "garden" module with `mod garden;`. The compiler will look for the module's code in these places:
+	- Inline, within curly brackets that replace the semicolon following `mod garden`
+	- In the file *src/garden.rs*
+	- In the file *src/garden/mod.rs*
+- **Declaring submodules:** In any other than the crate root, you can declare submodules. For example, you might declare `mod vegetables;` in *src/garden.rs.* The compiler will look for the submodule's code within the directory named for the parent module in these places:
+	- Inline, directly following `mod vegetables`, within curly brackets instead of the semicolon
+	- In the file *src/garden/vegetables.rs*
+	- In the file *src/garden/vegetables/mode.rs*
+- **Paths to code in modules:** Once a module is part of your crate, you can refer to code in that module from anywhere else in that same crate, as long as the privacy rules allow, using the path to the code. For example, an `Asparagus` type in the garden vegetables module would be found at `crate::garden::vegetables::Asparagus`.
+- **Private vs public:** Code within a module is private from its parent modules by default. To make a module public, declare it with `pub mod` instead of `mod`. To make items within a public module public as well, use `pub` before their declarations
+- **The `use` keyword:** Within a scope, the `use` keyword creates shortcuts to items to reduce repetition of long paths. In any scope that can refer to `crate::garden::vegetables::Asparagus`, you can create a shortcut with `use crate::garden::vegetables::Asparagus;` and from then on you only need to write `Asparagus` to make use of that type in the scope
+- Creating a crate named `backyard` illustrating above rules.
+```
+backyard
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── garden
+    │   └── vegetables.rs
+    ├── garden.rs
+    └── main.rs
+```
+- The crate root file is *src/main.rs*
+```rust
+use crate::garden::vegetables::Asparagus;
+
+pub mod garden;
+
+fn main() {
+    let plant = Asparagus {};
+    println!("I'm growing {:?}!", plant);
+}
+```
+- The `pub mod garden;` line tells the compiler to include the code it find in *src/garden.rs*, which is:
+- Filename: src/garden.rs
+```rust
+pub mod vegetables;
+```
+- Here, `pub mod vegerables;` means the code in *src/garden/vegetables.rs* is included too. That code is:
+```rust
+#[derive(Debug)]
+pub struct Asparagus {}
+```

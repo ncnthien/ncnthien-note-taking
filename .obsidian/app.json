@@ -1,4 +1,5 @@
 {
   "readableLineLength": false,
-  "propertiesInDocument": "source"
+  "propertiesInDocument": "source",
+  "vimMode": true
 }
