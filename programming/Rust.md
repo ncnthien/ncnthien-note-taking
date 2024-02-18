@@ -868,3 +868,81 @@ pub mod vegetables;
 #[derive(Debug)]
 pub struct Asparagus {}
 ```
+# Common Collections
+- Often used collections in Rust:
+	- A *vector* allows to store a variable number of values next to each other
+	- A *string* is a collection of characters
+	- A *hash map* allows to associate a value with a particular key
+## Storing Lists of Values with Vectors
+- Vectors allow to store more than one value in a single data structure that puts all the values next to each other in memory
+- Vectors can only store values of the same type
+### Creating a New Vector
+- Create a new empty vector
+```rust
+let v: Vec<i32> = Vec::new();
+```
+- Or can use `vec!`
+```rust
+let v = vec![1, 2, 3];
+```
+### Updating a Vector
+- Create a vector and add elements to it
+```rust
+let mut v = Vec::new();
+
+v.push(5);
+v.push(6);
+v.push(7);
+v.push(8);
+```
+### Reading Elements of Vectors
+```rust
+let v = vec![1, 2, 3, 4, 5];
+
+let third: &i32 = &v[2];
+println!("The third element is {third}");
+
+let third: Option<&i32> = v.get(2);
+match third {
+	Some(third) => println!("The third element is {third}"),
+	None => println!("There is no third element."),
+}
+```
+- If use `get` instead of `[ ]`, you will give the type `Option<&T>` that we can use with `match`
+### Iterating over the Values in a Vector
+- Use `for` loop
+```rust
+let v = vec![100, 32, 57];
+for i in &v {
+	println!("{i}");
+}
+```
+- Or use `mut` to mutate during the loop
+```rust
+let mut v = vec![100, 32, 57];
+for i in &mut v {
+	*i += 50;
+}
+```
+### Using an Enum to Store Multiple Types
+```rust
+    enum SpreadsheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
+```
+### Dropping a Vector Drops Its Elements
+```rust
+    {
+        let v = vec![1, 2, 3, 4];
+
+        // do stuff with v
+    } // <- v goes out of scope and is freed here
+```

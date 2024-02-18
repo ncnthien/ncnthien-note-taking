@@ -1,5 +1,5 @@
 ---
-tags: cheatsheet
+tags: cheatshee. 
 ---
 # Symlink
 - Create symlink to a file
