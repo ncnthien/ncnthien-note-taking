@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "7c0ce8f2a3e3c5cd",
+        "id": "d38b7c2e7c02db4c",
         "type": "tabs",
         "children": [
           {
-            "id": "80921a1e90572add",
+            "id": "60a04dc34bb55c5d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming/rust.md",
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "328cc2201ccb3334",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "programming/Docker.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,8 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "dc21c3ff7ba47d6a",
@@ -86,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "programming/rust.md",
+                "file": "programming/Docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "programming/rust.md",
+                "file": "programming/Docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "programming/rust.md"
+                "file": "programming/Docker.md"
               }
             }
           }
@@ -147,14 +159,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "80921a1e90572add",
+  "active": "328cc2201ccb3334",
   "lastOpenFiles": [
-    "helper/linux.md",
-    "programming/rust.md",
-    "helper/bash-script.md",
-    "helper/git.md",
-    "helper/markdown.md",
+    "Todos.md",
+    "programming/Docker.md",
     "README.md",
+    "programming/rust.md",
+    "helper/markdown.md",
+    "helper/git.md",
+    "helper/linux.md",
+    "helper/bash-script.md",
     "programming"
   ]
 }
