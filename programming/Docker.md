@@ -22,3 +22,11 @@ docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH
 ```
 docker cp [OPTIONS] SRC_PATH CONTAINER:DEST_PATH
 ```
+- stop a running container
+```
+docker stop [OPTIONS] CONTAINER
+```
+- remove a container
+```
+docker rm [OPTIONS] CONTAINER
+```
