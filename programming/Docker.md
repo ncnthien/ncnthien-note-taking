@@ -14,3 +14,11 @@ docker exec -it <container_id> <command>
 ```
 docker image ls
 ```
+- copy a file from container to local
+```
+docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH
+```
+- copy a file from local to container
+```
+docker cp [OPTIONS] SRC_PATH CONTAINER:DEST_PATH
+```
